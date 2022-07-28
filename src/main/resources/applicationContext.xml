@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="speakerRepositoryBean"
+          class="com.example.repository.HibernateSpeakerRepositoryImpl"/>
+
+<!--    <bean name="speakerService" class="com.example.service.SpeakerServiceImpl">-->
+<!--        <property name="speakerRepository" ref="speakerRepositoryBean"/> speakerRepository here is the name of the setter
+            if the setter name is setSpeakerRepository then the name is speakerRepository
+            a reference is used when we need to reference a bean-->
+<!--    </bean>-->
+
+    <bean name="speakerService" class="com.example.service.SpeakerServiceImpl">
+        <constructor-arg index="0" ref="speakerRepositoryBean"/>
+    </bean>
+</beans>
